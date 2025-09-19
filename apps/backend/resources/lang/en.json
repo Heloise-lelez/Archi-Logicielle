@@ -1,0 +1,50 @@
+{
+  "welcome": {
+    "preview": "Welcome to {{company}} - Exclusive 25% Off!",
+    "heading": "Welcome {{username}}!",
+    "description": "Your adventure begins here!",
+    "badge": "SPECIAL WELCOME OFFER",
+    "offerHeading": "25% OFF",
+    "offerText": "Your Next Purchase",
+    "offerSubtext": "Use code: <strong>{{code}}</strong>",
+    "offerExpiry": "Valid for 30 days",
+    "valuesHeading": "Why Choose {{company}}?",
+    "sustainableTitle": "Sustainable",
+    "sustainableDesc": "Eco-friendly practices in everything we do",
+    "fastTitle": "Fast",
+    "fastDesc": "Lightning-fast delivery and service",
+    "careTitle": "Care",
+    "careDesc": "Customer satisfaction is our priority"
+  },
+  "forgotPassword": {
+    "preview": "Reset your {{company}} account password",
+    "heading": "Forgot your password, {{username}}?",
+    "description": "No worries! Let's get you back into your {{company}} account.",
+    "title": "Reset Your Password",
+    "body": "We received a request to reset your password. Click the button below to choose a new one:",
+    "button": "Reset Password",
+    "subtext": "This link will expire in 30 minutes. If you didn’t request a password reset, you can safely ignore this email.",
+    "security": "For your security, this request was initiated from IP address XXX. If this wasn’t you, we strongly recommend updating your account credentials."
+  },
+  "verifyEmail": {
+    "preview": "Verify your email to activate your account",
+    "heading": "Verify Your Email",
+    "description": "Please confirm your email address to activate your account.",
+    "intro": "Hi {{username}}, to finish setting up your account, please confirm your email by clicking the button below.",
+    "button": "VERIFY EMAIL",
+    "fallback": "If the button doesn’t work, copy and paste the following link into your browser:",
+    "expiry": "This verification link is valid for 30 minutes. After that, you’ll need to request a new one."
+  },
+  "paymentConfirmation": {
+    "preview": "Your payment of {{amount}} to {{company}} is confirmed",
+    "heading": "Payment Confirmed",
+    "description": "Thank you {{username}}, your order is on the way!",
+    "summaryHeading": "Order Summary",
+    "orderId": "Order ID",
+    "orderDate": "Date",
+    "paymentMethod": "Payment Method",
+    "totalPaid": "Total Paid",
+    "infoText": "You’ll receive another email once your order has shipped. In the meantime, you can track your order status in your",
+    "accountLink": "account dashboard"
+  }
+}
