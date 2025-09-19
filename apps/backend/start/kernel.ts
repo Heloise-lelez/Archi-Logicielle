@@ -15,6 +15,7 @@ import server from '@adonisjs/core/services/server'
  * The error handler is used to convert an exception
  * to an HTTP response.
  */
+// @ts-ignore
 server.errorHandler(() => import('#exceptions/handler'))
 
 /**
@@ -35,6 +36,7 @@ server.use([
 router.use([
   () => import('@adonisjs/core/bodyparser_middleware'),
   () => import('@adonisjs/auth/initialize_auth_middleware'),
+  () => import('#middleware/detect_user_locale_middleware')
 ])
 
 /**
