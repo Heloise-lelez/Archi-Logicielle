@@ -9,6 +9,7 @@
 
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
+import MailsController from "#controllers/mails_controller";
 
 router
   .get('/', async ({ auth }) => {
@@ -38,3 +39,8 @@ router
 router.get('user', [PostsController, 'user'])
 router.post('register', [SessionController, 'register'])
 router.delete('session', [SessionController, 'destroy']).use(middleware.auth({ guards: ['api'] }))
+
+router.post('/welcome/mail', [MailsController, "sendWelcomeEmail"])
+router.post('/payment/mail', [MailsController, "sendPaymentEmail"])
+router.post('/password/mail', [MailsController, "sendPasswordEmail"])
+router.post('/verification/mail', [MailsController, "sendVerificationEmail"])
