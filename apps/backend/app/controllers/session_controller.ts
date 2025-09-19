@@ -28,4 +28,14 @@ export default class SessionController {
 
     return { fullName, token, email }
   }
+
+  async editProfil({ request, auth, response }: HttpContext) {
+    const { fullName, email } = request.only(['fullName', 'email'])
+    const user = await auth.use('api').authenticate()
+    user.fullName = fullName
+    user.email = email
+    await user.save()
+
+    return { fullName: user.fullName, email: user.email }
+  }
 }

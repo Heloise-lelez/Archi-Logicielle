@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
@@ -49,7 +48,7 @@ export default function Home() {
               <span style={{ color: "#2C6E49" }}>
                 Bonjour {user?.fullName || user?.email} 👋
               </span>
-              <Link href="/profile">Profil</Link>
+              <Link href="/profil">Profil</Link>
             </>
           ) : (
             <>

@@ -32,6 +32,9 @@ const SessionController = () => import('#controllers/session_controller')
 const PostsController = () => import('#controllers/posts_controller')
 
 router.post('login', [SessionController, 'store'])
+router
+  .put('editProfil', [SessionController, 'editProfil'])
+  .use(middleware.auth({ guards: ['api'] }))
 router.get('user', [PostsController, 'user'])
 router.post('register', [SessionController, 'register'])
 router.delete('session', [SessionController, 'destroy']).use(middleware.auth({ guards: ['api'] }))
