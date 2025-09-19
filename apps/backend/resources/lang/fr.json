@@ -1,0 +1,50 @@
+{
+  "welcome": {
+    "preview": "Bienvenue chez {{company}} - 25% de réduction exclusive !",
+    "heading": "Bienvenue {{username}} !",
+    "description": "Votre aventure commence ici !",
+    "badge": "OFFRE DE BIENVENUE SPÉCIALE",
+    "offerHeading": "-25%",
+    "offerText": "Sur votre prochain achat",
+    "offerSubtext": "Utilisez le code : <strong>{{code}}</strong>",
+    "offerExpiry": "Valable pendant 30 jours",
+    "valuesHeading": "Pourquoi choisir {{company}} ?",
+    "sustainableTitle": "Durable",
+    "sustainableDesc": "Des pratiques éco-responsables dans tout ce que nous faisons",
+    "fastTitle": "Rapide",
+    "fastDesc": "Un service et une livraison ultra rapides",
+    "careTitle": "Attention",
+    "careDesc": "La satisfaction client est notre priorité"
+  },
+  "forgotPassword": {
+    "preview": "Réinitialisez le mot de passe de votre compte {{company}}",
+    "heading": "Mot de passe oublié, {{username}} ?",
+    "description": "Pas d’inquiétude ! Récupérons l’accès à votre compte {{company}}.",
+    "title": "Réinitialiser votre mot de passe",
+    "body": "Nous avons reçu une demande de réinitialisation de votre mot de passe. Cliquez sur le bouton ci-dessous pour en choisir un nouveau :",
+    "button": "Réinitialiser le mot de passe",
+    "subtext": "Ce lien expirera dans <strong>30 minutes</strong>. Si vous n’avez pas demandé de réinitialisation, ignorez simplement cet email.",
+    "security": "Pour votre sécurité, cette demande a été initiée depuis l’adresse IP <strong>{{ip}}</strong>. Si ce n’était pas vous, nous vous recommandons fortement de mettre à jour vos identifiants."
+  },
+  "verifyEmail": {
+    "preview": "Vérifiez votre email pour activer votre compte",
+    "heading": "Vérifiez votre email",
+    "description": "Veuillez confirmer votre adresse email pour activer votre compte.",
+    "intro": "Bonjour {{username}}, pour terminer la configuration de votre compte, veuillez confirmer votre email en cliquant sur le bouton ci-dessous.",
+    "button": "VÉRIFIER L'EMAIL",
+    "fallback": "Si le bouton ne fonctionne pas, copiez et collez le lien suivant dans votre navigateur :",
+    "expiry": "Ce lien de vérification est valable pendant 30 minutes. Après cela, vous devrez en demander un nouveau."
+  },
+  "paymentConfirmation": {
+    "preview": "Votre paiement de {{amount}} pour {{company}} est confirmé",
+    "heading": "Paiement confirmé",
+    "description": "Merci {{username}}, votre commande est en cours de traitement !",
+    "summaryHeading": "Résumé de la commande",
+    "orderId": "ID de commande",
+    "orderDate": "Date",
+    "paymentMethod": "Mode de paiement",
+    "totalPaid": "Total payé",
+    "infoText": "Vous recevrez un autre email une fois votre commande expédiée. En attendant, vous pouvez suivre l’état de votre commande dans votre",
+    "accountLink": "espace client"
+  }
+}
