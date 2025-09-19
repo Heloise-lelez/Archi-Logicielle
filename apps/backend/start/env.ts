@@ -27,5 +27,22 @@ export default await Env.create(new URL('../', import.meta.url), {
   DB_PORT: Env.schema.number(),
   DB_USER: Env.schema.string(),
   DB_PASSWORD: Env.schema.string.optional(),
-  DB_DATABASE: Env.schema.string()
+  DB_DATABASE: Env.schema.string(),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for configuring the Shopkeeper Stripe SDK
+  |----------------------------------------------------------
+  */
+  STRIPE_KEY: Env.schema.string(),
+  STRIPE_SECRET: Env.schema.string(),
+  STRIPE_WEBHOOK_SECRET: Env.schema.string.optional(),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for configuring the Shopkeeper package
+  |----------------------------------------------------------
+  */
+  SHOPKEEPER_CURRENCY: Env.schema.string.optional(),
+  SHOPKEEPER_CURRENCY_LOCALE: Env.schema.string.optional()
 })
