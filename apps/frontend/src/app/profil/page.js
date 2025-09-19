@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
+import "../styles/profil.css";
 
 // Custom hooks
 const useAuth = () => {
@@ -91,21 +92,21 @@ const updateProfile = async (formData, token) => {
 
 // Components
 const ProfileDisplay = ({ user }) => (
-  <div>
-    <div style={{ marginBottom: 15 }}>
+  <div className="profile-infos">
+    <div className="profile-info">
       <strong>Name:</strong> {user.fullName}
     </div>
-    <div style={{ marginBottom: 15 }}>
+    <div className="profile-info">
       <strong>Email:</strong> {user.email}
     </div>
-    <div style={{ marginBottom: 15 }}>
+    <div className="profile-info">
       <strong>Adress:</strong> {user.address}
     </div>
-    <div style={{ marginBottom: 15 }}>
+    <div className="profile-info">
       <strong>Phone number:</strong> {user.phone_number}
     </div>
     {user.id && (
-      <div style={{ marginBottom: 15 }}>
+      <div className="profile-info">
         <strong>ID user:</strong> {user.id}
       </div>
     )}
@@ -113,27 +114,16 @@ const ProfileDisplay = ({ user }) => (
 );
 
 const ProfileForm = ({ formData, setFormData, errors, onSubmit }) => (
-  <form
-    onSubmit={onSubmit}
-    style={{
-      maxWidth: 400,
-      margin: "0 auto",
-      display: "flex",
-      flexDirection: "column",
-      gap: 10,
-    }}
-  >
+  <form onSubmit={onSubmit} className="form-container">
     <div>
       <input
         type="text"
         placeholder="Nom complet"
         value={formData.fullName}
         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-        style={{ width: "100%", padding: 8 }}
+        className="input-field"
       />
-      {errors.fullName && (
-        <p style={{ color: "red", fontSize: 12 }}>{errors.fullName}</p>
-      )}
+      {errors.fullName && <p className="error-text">{errors.fullName}</p>}
     </div>
 
     <div>
@@ -142,11 +132,9 @@ const ProfileForm = ({ formData, setFormData, errors, onSubmit }) => (
         placeholder="Email"
         value={formData.email}
         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-        style={{ width: "100%", padding: 8 }}
+        className="input-field"
       />
-      {errors.email && (
-        <p style={{ color: "red", fontSize: 12 }}>{errors.email}</p>
-      )}
+      {errors.email && <p className="error-text">{errors.email}</p>}
     </div>
 
     <div>
@@ -155,11 +143,9 @@ const ProfileForm = ({ formData, setFormData, errors, onSubmit }) => (
         placeholder="Adresse"
         value={formData.address}
         onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-        style={{ width: "100%", padding: 8 }}
+        className="input-field"
       />
-      {errors.address && (
-        <p style={{ color: "red", fontSize: 12 }}>{errors.address}</p>
-      )}
+      {errors.address && <p className="error-text">{errors.address}</p>}
     </div>
 
     <div>
@@ -168,29 +154,57 @@ const ProfileForm = ({ formData, setFormData, errors, onSubmit }) => (
         placeholder="Téléphone"
         value={formData.phone}
         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-        style={{ width: "100%", padding: 8 }}
+        className="input-field"
       />
-      {errors.phone && (
-        <p style={{ color: "red", fontSize: 12 }}>{errors.phone}</p>
-      )}
+      {errors.phone && <p className="error-text">{errors.phone}</p>}
     </div>
 
-    <button
-      type="submit"
-      style={{
-        padding: "10px 20px",
-        backgroundColor: "#2C6E49",
-        color: "white",
-        border: "none",
-        borderRadius: 6,
-        cursor: "pointer",
-        marginTop: 10,
-      }}
-    >
+    <button type="submit" className="btn-primary input-field margin-top">
       Enregistrer
     </button>
   </form>
 );
+
+const ThemeToggle = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Récupérer le thème depuis localStorage
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+    setIsDark(shouldBeDark);
+
+    // Appliquer le thème
+    document.documentElement.setAttribute(
+      "data-theme",
+      shouldBeDark ? "dark" : "light"
+    );
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+
+    const themeValue = newTheme ? "dark" : "light";
+    localStorage.setItem("theme", themeValue);
+    document.documentElement.setAttribute("data-theme", themeValue);
+  };
+
+  return (
+    <button
+      onClick={toggleTheme}
+      className="theme-toggle"
+      aria-label={`Basculer vers le thème ${isDark ? "clair" : "sombre"}`}
+      title={`Basculer vers le thème ${isDark ? "clair" : "sombre"}`}
+    >
+      {isDark ? "🌞" : "🌙"}
+    </button>
+  );
+};
 
 // Main component
 export default function ProfilPage() {
@@ -258,37 +272,26 @@ export default function ProfilPage() {
 
   if (!isLoggedIn || !user) {
     return (
-      <div style={{ padding: 20, textAlign: "center" }}>
+      <div className="loading-container">
         <p>Chargement...</p>
       </div>
     );
   }
 
   return (
-    <div
-      style={{
-        fontFamily: "sans-serif",
-        padding: 20,
-        maxWidth: 600,
-        margin: "0 auto",
-      }}
-    >
-      <header style={{ marginBottom: 40 }}>
-        <Link href="/" style={{ textDecoration: "none", color: "#2C6E49" }}>
-          Retour à l'accueil
-        </Link>
+    <div className="container">
+      <header className="header">
+        <div className="header-content">
+          <Link href="/" className="back-link">
+            Retour à l'accueil
+          </Link>
+          <ThemeToggle />
+        </div>
         <ToastContainer />
       </header>
 
-      <div
-        style={{
-          backgroundColor: "#131a16ff",
-          padding: 30,
-          borderRadius: 10,
-          marginBottom: 30,
-        }}
-      >
-        <h1 style={{ color: "#2C6E49", marginBottom: 20 }}>Mon Profil 👤</h1>
+      <div className="profile-card">
+        <h1 className="title">My profil</h1>
 
         {editMode ? (
           <ProfileForm
@@ -302,34 +305,14 @@ export default function ProfilPage() {
         )}
       </div>
 
-      <div style={{ display: "flex", gap: 15, flexWrap: "wrap" }}>
+      <div className="button-group">
         {!editMode && (
-          <button
-            onClick={() => setEditMode(true)}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#2C6E49",
-              color: "white",
-              border: "none",
-              borderRadius: 6,
-              cursor: "pointer",
-            }}
-          >
+          <button onClick={() => setEditMode(true)} className="btn-primary">
             Modifier le profil
           </button>
         )}
 
-        <button
-          onClick={logout}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#dc3545",
-            color: "white",
-            border: "none",
-            borderRadius: 6,
-            cursor: "pointer",
-          }}
-        >
+        <button onClick={logout} className="btn-danger">
           Se déconnecter
         </button>
       </div>
