@@ -15,7 +15,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.16.1",
   "dependencies": {
-    "@radix-ui/themes": "^3.2.1",
+    "@adonisjs/auth": "^9.4.2",
     "flag": "^5.0.1"
   },
   "devDependencies": {
